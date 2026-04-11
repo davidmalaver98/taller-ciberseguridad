@@ -3,12 +3,15 @@
 using namespace std;
 
 int main() {
+    //variables creadas
     string password;
     bool tieneMayuscula = false;
     bool tieneNumero = false;
     bool tieneSimboloEspecial = false;
+    //ingreso de contraseña
     cout << "Ingrese contraseña: ";
     cin >> password;
+    //for para validar reglas
     for (int i = 0; i < password.length(); i++) { 
         if (password[i] >= 'A' && password[i] <= 'Z') {  
             tieneMayuscula = true;                         
@@ -28,9 +31,11 @@ int main() {
                 break;
         }
     }
-    
+    //variable que necesita la lectura de la contraseña
     bool tieneLongitud = password.length() >= 8;
+    //variable de puntaje para validar el nivel de la contraseña
     int puntaje = tieneMayuscula + tieneNumero + tieneSimboloEspecial + tieneLongitud;
+    //estructura que evalua el puntaje
     switch (puntaje) {
         case 0:
             cout << "Nivel: DÉBIL" << endl;
